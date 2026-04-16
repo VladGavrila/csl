@@ -54,7 +54,7 @@ if [ -n "$five_h" ] && [ -n "$seven_d" ]; then
       hrs=$((diff / 3600))
       mins=$(((diff % 3600) / 60))
       reset_at=$(date -r "$five_h_reset" "+%I:%M%p" 2>/dev/null | sed 's/^0//')
-      reset_str=$(printf " resets %dh%02dm (%s)" "$hrs" "$mins" "$reset_at")
+      reset_str=$(printf " resets in %dh%02dm (%s)" "$hrs" "$mins" "$reset_at")
     fi
   fi
   rate_str="5h: $(printf '%.0f' "$five_h")%${reset_str} [7d: $(printf '%.0f' "$seven_d")%]"

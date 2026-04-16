@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+exec < /dev/tty
 
 BASE_URL="https://raw.githubusercontent.com/VladGavrila/csl/main"
 DEST="$HOME/.claude"
@@ -12,7 +13,7 @@ for file in $FILES; do
   dest_file="$DEST/$file"
   if [ -f "$dest_file" ]; then
     printf "File %s already exists. Overwrite?(will create a backup) [y/N] " "$dest_file"
-    read -r yn < /dev/tty
+    read -r yn
     case "$yn" in
       [Yy]*)
         cp "$dest_file" "${dest_file}.bak"
